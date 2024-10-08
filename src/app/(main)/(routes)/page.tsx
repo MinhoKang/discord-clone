@@ -1,3 +1,9 @@
+import { UserButton } from "@clerk/nextjs";
+
 export default function Home() {
-  return <div className="">protected</div>;
+  return (
+    <div className="">
+      <UserButton />
+    </div>
+  );
 }
