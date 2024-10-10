@@ -1,4 +1,4 @@
-import { currentProfie } from "@/lib/current-profile";
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 
@@ -8,7 +8,7 @@ interface InviteCodePageProps {
   };
 }
 const InviteCodePage = async ({ params }: InviteCodePageProps) => {
-  const profile = await currentProfie();
+  const profile = await currentProfile();
 
   if (!profile) return redirect("/sign-in");
 

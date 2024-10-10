@@ -1,5 +1,5 @@
 import { ServerSidebar } from "@/components/server/server-sidebar";
-import { currentProfie } from "@/lib/current-profile";
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 
@@ -10,7 +10,7 @@ const ServerIdLayout = async ({
   children: React.ReactNode;
   params: { serverId: string };
 }) => {
-  const profile = await currentProfie();
+  const profile = await currentProfile();
 
   if (!profile) return redirect("sign-in");
 

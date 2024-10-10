@@ -1,4 +1,4 @@
-import { currentProfie } from "@/lib/current-profile";
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { MemberRole } from "@prisma/client";
 import { NextResponse } from "next/server";
@@ -8,7 +8,7 @@ export const POST = async (req: Request) => {
   // 대문자로
   try {
     const { name, imageUrl } = await req.json();
-    const profile = await currentProfie();
+    const profile = await currentProfile();
 
     if (!profile) return new NextResponse("Unauthorized", { status: 401 });
 

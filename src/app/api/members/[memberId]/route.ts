@@ -1,4 +1,4 @@
-import { currentProfie } from "@/lib/current-profile";
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
@@ -7,7 +7,7 @@ export const DELETE = async (
   { params }: { params: { memberId: string } }
 ) => {
   try {
-    const profile = await currentProfie();
+    const profile = await currentProfile();
     const { searchParams } = new URL(req.url);
 
     const serverId = searchParams.get("serverId");
@@ -18,7 +18,7 @@ export const DELETE = async (
       return new NextResponse("Server Id missing", { status: 400 });
 
     if (!params.memberId)
-      return new NextResponse("Member Id missin", { status: 400 });
+      return new NextResponse("Member Id missing", { status: 400 });
 
     const server = await db.server.update({
       where: {
@@ -59,7 +59,7 @@ export const PATCH = async (
   { params }: { params: { memberId: string } }
 ) => {
   try {
-    const profile = await currentProfie();
+    const profile = await currentProfile();
 
     const { searchParams } = new URL(req.url);
     const { role } = await req.json();
