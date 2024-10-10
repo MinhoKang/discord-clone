@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import qs from "query-string";
 
 export const DeleteChannelModal = () => {
-  const { onOpen, isOpen, onClose, type, data } = UseModal();
+  const { isOpen, onClose, type, data } = UseModal();
   const router = useRouter();
 
   const isModalOpen = isOpen && type === "deleteChannel";
@@ -27,7 +27,6 @@ export const DeleteChannelModal = () => {
   const onClick = async () => {
     try {
       setIsLoading(true);
-      console.log("1");
 
       const url = qs.stringifyUrl({
         url: `/api/channels/${channel?.id}`,
@@ -35,10 +34,7 @@ export const DeleteChannelModal = () => {
           serverId: server?.id,
         },
       });
-      console.log(url);
-      console.log("2");
       await axios.delete(url);
-      console.log("3");
 
       onClose();
       router.refresh();
