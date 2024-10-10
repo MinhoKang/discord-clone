@@ -25,14 +25,19 @@ const InviteCodePage = async ({ params }: InviteCodePageProps) => {
     },
   });
 
-  console.log("existingServer", existingServer);
-
   if (existingServer) return redirect(`/servers/${existingServer.id}`);
+
+  const serverToUpdate = await db.server.findFirst({
+    where: {
+      inviteCode: params.inviteCode,
+    },
+  });
+
+  if (!serverToUpdate) return redirect("/");
 
   const server = await db.server.update({
     where: {
-      id: profile.id,
-      inviteCode: params?.inviteCode,
+      id: serverToUpdate.id,
     },
     data: {
       members: {
@@ -44,8 +49,6 @@ const InviteCodePage = async ({ params }: InviteCodePageProps) => {
       },
     },
   });
-
-  console.log("serverserver", server);
 
   if (server) return redirect(`/servers/${server.id}`);
 
