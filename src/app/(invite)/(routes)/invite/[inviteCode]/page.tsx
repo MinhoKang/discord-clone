@@ -31,7 +31,8 @@ const InviteCodePage = async ({ params }: InviteCodePageProps) => {
 
   const server = await db.server.update({
     where: {
-      inviteCode: params.inviteCode,
+      id: profile.id,
+      inviteCode: params?.inviteCode,
     },
     data: {
       members: {
