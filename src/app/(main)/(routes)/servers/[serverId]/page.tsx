@@ -11,7 +11,7 @@ interface ServerPageProps {
 const ServerPage = async ({ params }: ServerPageProps) => {
   const profile = await currentProfile();
 
-  if (!profile) redirect("sign-in");
+  if (!profile) return redirect("sign-in");
 
   const server = await db.server.findUnique({
     where: {
