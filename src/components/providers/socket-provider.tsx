@@ -34,15 +34,22 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
     );
 
     socketInstance.on("connect", () => {
+      console.log("Socket connected to", process.env.NEXT_PUBLIC_SITE_URL);
+
       setIsConnected(true);
     });
     socketInstance.on("disconnect", () => {
+      console.log("Socket disconnected from", process.env.NEXT_PUBLIC_SITE_URL);
+
       setIsConnected(false);
     });
 
     setSocket(socketInstance);
 
-    return () => socketInstance.disconnect();
+    return () => {
+      console.log("Socket disconnecting...");
+      socketInstance.disconnect();
+    };
   }, []);
 
   return (
