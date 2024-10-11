@@ -1,8 +1,10 @@
 import { currentProfilePages } from "@/lib/current-profile-pages";
 import { db } from "@/lib/db";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiResponeServerIo } from "@/types";
+import { NextApiRequest } from "next";
 
-export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponeServerIo) => {
+  console.log("object");
   if (req.method !== "POST")
     return res.status(405).json({ message: "Method Not Allowed" });
 
@@ -57,7 +59,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       data: {
         content,
         fileUrl,
-        channelId: channel.id,
+        channelId: channel.id as string,
         memberId: member.id,
       },
       include: {
@@ -79,3 +81,5 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+export default handler;

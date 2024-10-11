@@ -63,8 +63,8 @@ model Member {
 
   directMessages DirectMessage[]
 
-  conversationInitiated Conversation[] @relation("MemberOne")
-  conversationReceived Conversation[] @relation("MemberTwo")
+  conversationsInitiated Conversation[] @relation("MemberOne")
+  conversationsReceived Conversation[] @relation("MemberTwo")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
