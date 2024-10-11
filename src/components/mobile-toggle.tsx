@@ -1,17 +1,11 @@
 import { Menu } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "./ui/button";
 import { NavigationSidebar } from "./navigation/navigation-sidebar";
 import { ServerSidebar } from "./server/server-sidebar";
 
 export const MobileToggle = ({ serverId }: { serverId: string }) => {
+  // TODO: 모바일버전 className 다시 확인
   return (
     <Sheet>
       <SheetTrigger asChild>
