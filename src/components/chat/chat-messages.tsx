@@ -26,7 +26,7 @@ interface ChatMessagesProps {
   type: "channel" | "conversation";
 }
 
-const DATE_FORMAT = "d mmm yyy, HH:mm";
+const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
 export const ChatMessages = ({
   name,
@@ -42,6 +42,9 @@ export const ChatMessages = ({
   const queryKey = `chat:${chatId}`;
   const addKey = `chat:${chatId}:messages`;
   const updateKey = `chat:${chatId}:messages:update`;
+
+  console.log("addKey", addKey);
+  console.log("updateKey", updateKey);
 
   const chatRef = useRef<ElementRef<"div">>(null);
   const bottomRef = useRef<ElementRef<"div">>(null);

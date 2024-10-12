@@ -78,7 +78,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponeServerIo) => {
 
     res?.socket?.server?.io?.emit(channelKey, message);
 
-    return res.status(200).json({ message });
+    return res.status(200).json(message);
   } catch (error) {
     console.log("[DIRECT_MESSAGES_POST]", error);
     return res.status(500).json({ message: "Internal Server Error" });

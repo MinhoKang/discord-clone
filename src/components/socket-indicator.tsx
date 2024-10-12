@@ -22,7 +22,7 @@ export const SocketIndicator = () => {
       className="bg-emerald-600 text-white border-none"
       variant={"outline"}
     >
-      Live: Real-tile updates
+      Live: Real-time updates
     </Badge>
   );
 };

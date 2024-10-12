@@ -72,10 +72,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponeServerIo) => {
     });
 
     const channelKey = `chat:${channelId}:messages`;
+    console.log("channelKey", channelKey);
 
     res?.socket?.server?.io?.emit(channelKey, message);
 
-    return res.status(200).json({ message });
+    return res.status(200).json(message);
   } catch (error) {
     console.log("[MESSAGES_POST]", error);
     return res.status(500).json({ message: "Internal Server Error" });
