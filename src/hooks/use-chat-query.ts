@@ -34,6 +34,8 @@ export const useChatQuery = ({
     return res.json();
   };
 
+  console.log(isConnected)
+
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useInfiniteQuery({
       queryKey: [queryKey],
