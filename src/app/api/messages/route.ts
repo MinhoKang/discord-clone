@@ -31,7 +31,7 @@ export const GET = async (req: Request) => {
           channelId,
         },
         include: {
-          memeber: {
+          member: {
             include: {
               profile: true,
             },
@@ -48,7 +48,7 @@ export const GET = async (req: Request) => {
           channelId,
         },
         include: {
-          memeber: {
+          member: {
             include: {
               profile: true,
             },

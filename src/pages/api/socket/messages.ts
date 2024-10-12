@@ -53,7 +53,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponeServerIo) => {
       (member) => member.profileId === profile.id
     );
 
-    if (!member) return res.status(404).json({ message: "Memeber Not Found" });
+    if (!member) return res.status(404).json({ message: "Member Not Found" });
 
     const message = await db.message.create({
       data: {
@@ -63,7 +63,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponeServerIo) => {
         memberId: member.id,
       },
       include: {
-        memeber: {
+        member: {
           include: {
             profile: true,
           },
