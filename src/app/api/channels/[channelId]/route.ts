@@ -24,9 +24,7 @@ export const DELETE = async (
 
     if (!params.channelId)
       return new NextResponse("Channel Id missing", { status: 400 });
-    console.log("Profile:", profile);
-    console.log("Server ID:", serverId);
-    console.log("Channel ID:", params.channelId);
+
     const server = await db.server.update({
       where: {
         id: serverId,
